@@ -1,0 +1,17 @@
+.content {
+  padding: 100px 0; }
+
+.empty-line {
+  background: #efeff0;
+  height: 20px;
+  margin-bottom: 20px;
+  animation: pulsing 1s linear alternate infinite; }
+  .empty-line.is-short {
+    max-width: 100px;
+    height: 40px; }
+
+@keyframes pulsing {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
