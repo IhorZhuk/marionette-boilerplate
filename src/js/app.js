@@ -1,14 +1,11 @@
 import './../scss/app.scss'
 import Marionette from 'backbone.marionette';
-import RootView from 'Views/rootView';
-import Router from './router';
 
 var App =  Marionette.Application.extend({
   region: '#app',
 
   onStart() {
-    new Router();
-    this.showView(new RootView());
+    console.log('app start')
     Backbone.history.start();
   }
 });

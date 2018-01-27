@@ -1,8 +1,10 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 
 var DIST_DIR = path.resolve(__dirname, "dist");
 var SRC_DIR = path.resolve(__dirname, "src");
+var TEST_DIR = path.resolve(__dirname, "test");
 
 module.exports = {
   entry: SRC_DIR + '/js/app.js',
@@ -11,7 +13,8 @@ module.exports = {
       Templates: SRC_DIR +  '/js/templates',
       Views: SRC_DIR + '/js/views',
       Entities: SRC_DIR + '/js/entities',
-      Behaviors: SRC_DIR + '/js/behaviors'
+      Behaviors: SRC_DIR + '/js/behaviors',
+      Fixtures: TEST_DIR + '/fixtures'
     },
     extensions:['.js', '.jst']
   },
@@ -35,6 +38,12 @@ module.exports = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin('app.css')
+    new ExtractTextPlugin('app.css'),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery', 'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+      _: 'underscore'
+    })
   ]
 };
