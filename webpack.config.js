@@ -14,7 +14,8 @@ module.exports = {
       Views: SRC_DIR + '/js/views',
       Entities: SRC_DIR + '/js/entities',
       Behaviors: SRC_DIR + '/js/behaviors',
-      Fixtures: TEST_DIR + '/fixtures'
+      Fixtures: TEST_DIR + '/fixtures',
+      Img: SRC_DIR + '/img'
     },
     extensions:['.js', '.jst']
   },
@@ -35,6 +36,14 @@ module.exports = {
       use: {
         loader: 'underscore-template-loader'
       }
+    },
+    {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file-loader?name=fonts/[name].[ext]'
+    },
+    {
+      test: /\.(png|jpg)$/,
+      loader: 'file-loader?name=img/[name].[ext]'
     }]
   },
   plugins: [

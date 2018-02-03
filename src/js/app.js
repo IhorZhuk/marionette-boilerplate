@@ -1,4 +1,5 @@
-import './../scss/app.scss'
+import './../scss/app.scss';
+import 'bootstrap';
 import Marionette from 'backbone.marionette';
 
 var App =  Marionette.Application.extend({
